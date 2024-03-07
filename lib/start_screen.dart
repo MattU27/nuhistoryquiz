@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Hello World', // Set the title of your app
+      title: 'NuTimeWarp', // Set the title of your app
       home: StartScreen(),
       // Set the path to your icon file
       // Note: This assumes that your icon file is located in the assets directory
