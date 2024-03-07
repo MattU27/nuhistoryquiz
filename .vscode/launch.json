@@ -1,0 +1,25 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "nuhistoryquiz",
+            "request": "launch",
+            "type": "dart",
+            "program": "lib/start_screen.dart" // Update this line
+        },
+        {
+            "name": "nuhistoryquiz (profile mode)",
+            "request": "launch",
+            "type": "dart",
+            "program": "lib/start_screen.dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "nuhistoryquiz (release mode)",
+            "request": "launch",
+            "type": "dart",
+            "program": "lib/start_screen.dart",
+            "flutterMode": "release"
+        }
+    ]
+}
