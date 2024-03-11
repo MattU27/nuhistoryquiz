@@ -626,9 +626,8 @@ Widget build(BuildContext context) {
 }
 
 
-
   void _showTrivia(String? trivia) {
-  if (trivia != null && !_triviaDialogShown) {
+  if (trivia != null && !_triviaDialogShown && mounted) {
     _triviaDialogShown = true; // Set trivia dialog shown to true
     _timer.cancel(); // Pause the timer
     showDialog(
@@ -662,8 +661,10 @@ Widget build(BuildContext context) {
               onPressed: () {
                 Navigator.of(ctx).pop();
                 _triviaDialogShown = false; // Set trivia dialog shown back to false
-                _nextQuestion(); // Move to the next question after dismissing trivia dialog
-                _startTimer(); // Resume the timer
+                if (mounted) {
+                  _nextQuestion(); // Move to the next question after dismissing trivia dialog
+                  _startTimer(); // Resume the timer
+                }
               },
               child: Text('Okay', style: TextStyle(fontFamily: 'PressStart2P', fontSize: 16)),
             ),
@@ -673,10 +674,6 @@ Widget build(BuildContext context) {
     );
   }
 }
-
-
-
-
 
   @override
   void dispose() {
