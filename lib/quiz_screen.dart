@@ -450,21 +450,24 @@ class _QuizScreenState extends State<QuizScreen> {
 }
 
    void _nextQuestion() {
-  setState(() {
-    _questionIndex++; // Move to the next question
-    _timeLeft = 10; // Reset the time left for the new question
+  if (mounted) {
+    setState(() {
+      _questionIndex++; // Move to the next question
+      _timeLeft = 10; // Reset the time left for the new question
 
-    // Reset flags and cancel timer if all questions are answered
-    if (_questionIndex >= _questions.length) {
-      _triviaShown = false;
-      _triviaDialogShown = false;
-      _timer.cancel();
-    } else {
-      _triviaShown = false; // Reset flag when moving to the next question
-      _triviaDialogShown = false; // Reset trivia dialog shown flag
-    }
-  });
+      // Reset flags and cancel timer if all questions are answered
+      if (_questionIndex >= _questions.length) {
+        _triviaShown = false;
+        _triviaDialogShown = false;
+        _timer.cancel();
+      } else {
+        _triviaShown = false; // Reset flag when moving to the next question
+        _triviaDialogShown = false; // Reset trivia dialog shown flag
+      }
+    });
+  }
 }
+
 
  @override
 Widget build(BuildContext context) {
